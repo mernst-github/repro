@@ -35,5 +35,4 @@ Includes logs from runs with `shipilev/openjdk:24-fastdebug` and `shipilev/openj
 Product builds seem to work fine, bad assertion only?
 `23-fastdebug` works fine, too.
 
-It is very sensitive wrt input values and order, slight changes make it pass.
-I'm guessing it triggers certain loop profile counters?
+It seems to be sensitive to `static` vs local segment and placement of the increment operations.
