@@ -8,14 +8,11 @@ public class Repro {
   static final MemorySegment segment = Arena.global().allocate(JAVA_LONG, COUNT);
 
   public static void main(String[] args) {
-    var lt = 0;
-    var eq = 0;
-    while (eq < COUNT) {
-      var tmp = segment.getAtIndex(JAVA_LONG, eq);
-      segment.setAtIndex(JAVA_LONG, eq, segment.getAtIndex(JAVA_LONG, lt));
-      segment.setAtIndex(JAVA_LONG, lt, tmp);
-      eq++;
-      lt++;
+    var i = 0;
+    var j = 0;
+    while (i < COUNT) {
+      segment.setAtIndex(JAVA_LONG, i++, 0);
+      segment.setAtIndex(JAVA_LONG, j++, 0);
     }
   }
 }
